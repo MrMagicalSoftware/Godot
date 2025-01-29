@@ -33,6 +33,8 @@ ___________________________________
 func _ready() -> void:
 	print("hello word")
 	$Label.text = "Wooow So Awesome"
+	$Label.modulate = Color.YELLOW_GREEN
+
 ```
 
 
