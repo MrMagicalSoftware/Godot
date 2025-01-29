@@ -29,6 +29,12 @@ ___________________________________
 <img width="891" alt="Screenshot 2025-01-29 alle 17 40 11" src="https://github.com/user-attachments/assets/d45a493e-1940-4167-a9b1-02f77d529f1b" />
 
 
+```
+func _ready() -> void:
+	print("hello word")
+	$Label.text = "Wooow So Awesome"
+```
+
 
 
 
