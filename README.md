@@ -285,9 +285,68 @@ else:
 
 
 
+____________
+
+# static typing
+
+```
+var damage : int = 10 
+```
+
+**typing di inferenza**
+```
+var damge :=15
+```
+______________
 
 
 
+# Uso di Export
+
+
+
+In Godot, l'annotazione `@export` (precedentemente nota come `export`) è utilizzata per esporre variabili di un script all'editor di Godot. Questo consente agli sviluppatori di modificare facilmente i valori delle variabili direttamente dall'editor senza dover modificare il codice sorgente. È particolarmente utile per configurare parametri di oggetti, nodi e risorse in modo visivo.
+
+### Utilizzi principali di `@export`
+
+1. **Modifica dei valori nell'editor**: Le variabili contrassegnate con `@export` possono essere modificate direttamente nell'Inspector dell'editor di Godot, rendendo più semplice la personalizzazione delle proprietà degli oggetti.
+
+2. **Tipi di dati supportati**: Puoi esportare variabili di vari tipi, inclusi `int`, `float`, `String`, `bool`, `Array`, `Dictionary`, e anche oggetti come `Node` o `Resource`.
+
+3. **Tipizzazione**: Puoi specificare il tipo di dato della variabile esportata, il che aiuta a mantenere il codice più chiaro e a prevenire errori.
+
+### Esempio di utilizzo
+
+Ecco un esempio di come utilizzare `@export` in uno script GDScript:
+
+```gdscript
+extends Node
+
+@export var speed: float = 10.0
+@export var player_name: String = "Giocatore"
+@export var is_active: bool = true
+@export var health: int = 100
+
+func _ready():
+    print("Nome del giocatore: ", player_name)
+    print("Velocità: ", speed)
+```
+
+In questo esempio:
+
+- `speed`, `player_name`, `is_active`, e `health` sono variabili esportate.
+- Puoi modificare questi valori direttamente nell'Inspector dell'editor di Godot, il che rende facile testare e configurare il comportamento del tuo gioco senza dover modificare il codice.
+
+### Vantaggi di `@export`
+
+- **Facilità d'uso**: Gli sviluppatori e i designer possono modificare le proprietà degli oggetti senza dover toccare il codice.
+- **Flessibilità**: Consente di testare rapidamente diverse configurazioni e valori.
+- **Organizzazione**: Aiuta a mantenere il codice più pulito e organizzato, separando la logica di gioco dalla configurazione.
+
+### Considerazioni
+
+- L'annotazione `@export` è particolarmente utile per i parametri che potrebbero dover essere regolati frequentemente durante lo sviluppo o il bilanciamento del gioco.
+- È importante notare che le variabili esportate sono visibili solo nell'Inspector e non possono essere modificate durante l'esecuzione del gioco, a meno che non vengano aggiornate tramite codice.
 
 
 
