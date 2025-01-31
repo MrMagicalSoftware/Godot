@@ -998,8 +998,6 @@ func _ready():
 
 In questo esempio, accediamo sia a un nodo `Player` che a un nodo `Label` chiamato `HealthLabel`, inizializzando entrambi con `@onready`. Quando il nodo è pronto, possiamo modificare la posizione del giocatore e impostare il testo dell'etichetta della salute.
 
-In sintesi, `@onready` è uno strumento utile in GDScript per garantire che le variabili siano inizializzate correttamente e siano pronte per l'uso quando il nodo è pronto, migliorando la chiarezza e la sicurezza del codice.
-
 
 
 
