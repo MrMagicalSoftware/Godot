@@ -1098,13 +1098,11 @@ func _on_player_died():
 - I segnali possono essere emessi con argomenti, che possono essere utilizzati dai listener per ricevere informazioni aggiuntive.
 - Puoi disconnettere un segnale utilizzando il metodo `disconnect` se non hai più bisogno di ricevere notifiche.
 
-In sintesi, i segnali sono uno strumento potente in Godot per gestire la comunicazione tra nodi e implementare un'architettura basata su eventi, migliorando la modularità e la chiarezza del codice.
 
 
 
 
-
-
+<img width="1503" alt="Screenshot 2025-01-31 alle 14 46 12" src="https://github.com/user-attachments/assets/d71387ab-0f7b-480e-81de-fa3d344d2b9a" />
 
 
 
