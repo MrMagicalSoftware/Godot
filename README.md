@@ -644,7 +644,118 @@ func _ready():
 ```
 
 
+________________________________________________________
 
+
+# Dizionari
+
+
+
+
+In Godot, i **dizionari** sono una struttura di dati che consente di memorizzare coppie chiave-valore. I dizionari sono simili agli oggetti in JavaScript o ai dizionari in Python e sono utili per memorizzare dati associativi, dove ogni valore è accessibile tramite una chiave unica.
+
+### Creazione di un Dizionario
+
+
+1. **Dizionario vuoto**:
+   ```gdscript
+   var my_dict: Dictionary = {}
+   ```
+
+2. **Dizionario con elementi**:
+   ```gdscript
+   var my_dict: Dictionary = {
+       "nome": "Alice",
+       "età": 30,
+       "città": "Roma"
+   }
+   ```
+
+### Accesso agli Elementi
+
+
+```gdscript
+var nome = my_dict["nome"]  # Restituisce "Alice"
+var eta = my_dict["età"]    # Restituisce 30
+```
+
+### Modifica degli Elementi
+
+
+```gdscript
+my_dict["età"] = 31  # Cambia l'età in 31
+```
+
+### Aggiunta e Rimozione di Elementi
+
+
+```gdscript
+my_dict["professione"] = "Sviluppatore"  # Aggiunge una nuova chiave "professione"
+```
+
+Per rimuovere un elemento, usiamo il metodo `erase()`:
+
+```gdscript
+my_dict.erase("città")  # Rimuove la chiave "città" dal dizionario
+```
+
+### Iterare su un Dizionario
+
+
+#### Iterare sulle chiavi
+
+```gdscript
+for key in my_dict.keys():
+    print("Chiave: ", key)
+```
+
+#### Iterare sui valori
+
+```gdscript
+for value in my_dict.values():
+    print("Valore: ", value)
+```
+
+#### Iterare su chiavi e valori
+
+```gdscript
+for key in my_dict.keys():
+    print(key, ": ", my_dict[key])
+```
+
+### Esempio Completo
+
+```gdscript
+extends Node
+
+func _ready():
+    # Creazione di un dizionario
+    var person: Dictionary = {
+        "nome": "Alice",
+        "età": 30,
+        "città": "Roma"
+    }
+    
+    # Accesso agli elementi
+    print("Nome: ", person["nome"])  # Output: Nome: Alice
+    print("Età: ", person["età"])    # Output: Età: 30
+    
+    # Modifica di un elemento
+    person["età"] = 31
+    print("Età aggiornata: ", person["età"])  # Output: Età aggiornata: 31
+    
+    # Aggiunta di un nuovo elemento
+    person["professione"] = "Sviluppatore"
+    print("Professione: ", person["professione"])  # Output: Professione: Sviluppatore
+    
+    # Rimozione di un elemento
+    person.erase("città")
+    print("Dizionario dopo la rimozione della città: ", person)  # Output: Dizionario dopo la rimozione della città: {"nome": "Alice", "età": 31, "professione": "Sviluppatore"}
+    
+    # Iterazione su chiavi e valori
+    for key in person.keys():
+        print(key, ": ", person[key])
+```
 
 
 
