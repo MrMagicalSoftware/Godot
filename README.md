@@ -435,7 +435,12 @@ In Godot, gli **array** sono una struttura di dati fondamentale che consente di 
 
 ### Creazione di un Array
 
-Puoi creare un array in GDScript in vari modi:
+```
+var items : Array[String] =["axe" , "potions" ]
+
+```
+
+
 
 1. **Array vuoto**:
    ```gdscript
