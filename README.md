@@ -12,7 +12,7 @@ Uso di Export<br>
 Match<br>
 @onready<br>
 Signals<br>
-
+Set Get<br>
 
 
 > Creare un nodo e rinominarlo in Main 
@@ -1103,6 +1103,44 @@ func _on_player_died():
 
 
 <img width="1503" alt="Screenshot 2025-01-31 alle 14 46 12" src="https://github.com/user-attachments/assets/d71387ab-0f7b-480e-81de-fa3d344d2b9a" />
+
+
+
+_____________________________________________________
+
+
+
+
+# Set Get
+
+
+
+
+```gdscript
+extends Node
+
+# Definizione di una variabile privata
+var _health: int = 100 setget set_health, get_health
+
+# Metodo setter
+func set_health(value: int) -> void:
+    _health = value
+    print("Health set to: ", _health)
+
+# Metodo getter
+func get_health() -> int:
+    return _health
+
+func _ready() -> void:
+    # Imposta la salute
+    health = 80  # Questo chiamerà set_health
+    # Ottieni la salute
+    var current_health = health  # Questo chiamerà get_health
+    print("Current health: ", current_health)
+```
+
+
+
 
 
 
