@@ -935,6 +935,70 @@ func process_input(input: String):
 
 
 
+___________________________________________________
+
+# onready
+
+
+In Godot, l'annotazione `@onready` è utilizzata per inizializzare variabili in modo che vengano assegnate solo dopo che il nodo è stato aggiunto alla scena e tutte le sue proprietà sono state caricate. Questo è particolarmente utile quando si desidera accedere a nodi o risorse che devono essere già presenti nella scena al momento dell'inizializzazione.
+
+### Utilizzo di `@onready`
+
+Quando dichiari una variabile con `@onready`, Godot attende che il nodo sia pronto prima di assegnare il valore alla variabile. Questo significa che puoi utilizzare `get_node()` o accedere a nodi figli senza preoccuparti che non siano ancora stati inizializzati.
+
+### Esempio di Utilizzo di `@onready`
+
+Ecco un esempio che mostra come utilizzare `@onready` per accedere a un nodo figlio:
+
+```gdscript
+extends Node
+
+@onready var player: Node2D = $Player  # Accede al nodo "Player" nella scena
+
+func _ready():
+    # Ora puoi utilizzare la variabile player, poiché è stata inizializzata
+    player.position = Vector2(100, 100)
+    print("Posizione del giocatore: ", player.position)
+```
+
+### Spiegazione del Codice
+
+1. **Dichiarazione della Variabile**: La variabile `player` è dichiarata con `@onready`, il che significa che verrà inizializzata solo quando il nodo è pronto.
+
+2. **Accesso al Nodo**: Utilizziamo `$Player` per accedere al nodo chiamato "Player" nella scena. Questo è un modo conciso per utilizzare `get_node("Player")`.
+
+3. **Funzione `_ready()`**: Questa funzione viene chiamata quando il nodo è pronto. Qui, possiamo utilizzare la variabile `player` per modificare la sua posizione e stampare la sua posizione attuale.
+
+### Vantaggi di `@onready`
+
+- **Semplicità**: Non è necessario chiamare `get_node()` all'interno di `_ready()`, rendendo il codice più pulito e leggibile.
+- **Sicurezza**: Garantisce che i nodi siano già stati inizializzati e siano disponibili per l'uso, evitando errori di accesso a nodi non inizializzati.
+- **Organizzazione**: Aiuta a mantenere il codice organizzato, poiché le variabili possono essere dichiarate e inizializzate in un'unica riga.
+
+### Considerazioni
+
+- `@onready` è particolarmente utile quando si lavora con nodi che devono essere accessibili immediatamente dopo che il nodo principale è stato caricato.
+- Puoi utilizzare `@onready` con qualsiasi tipo di variabile, non solo con nodi, ma anche con risorse o altre variabili che richiedono inizializzazione al momento giusto.
+
+### Esempio Completo
+
+Ecco un esempio completo che utilizza `@onready` per accedere a più nodi in una scena:
+
+```gdscript
+extends Node
+
+@onready var player: Node2D = $Player
+@onready var health_label: Label = $HealthLabel
+
+func _ready():
+    player.position = Vector2(100, 100)
+    health_label.text = "Salute: 100"
+    print("Posizione del giocatore: ", player.position)
+```
+
+In questo esempio, accediamo sia a un nodo `Player` che a un nodo `Label` chiamato `HealthLabel`, inizializzando entrambi con `@onready`. Quando il nodo è pronto, possiamo modificare la posizione del giocatore e impostare il testo dell'etichetta della salute.
+
+In sintesi, `@onready` è uno strumento utile in GDScript per garantire che le variabili siano inizializzate correttamente e siano pronte per l'uso quando il nodo è pronto, migliorando la chiarezza e la sicurezza del codice.
 
 
 
