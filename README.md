@@ -68,4 +68,75 @@ func _input(event: InputEvent) -> void:
 
 ```
 
+______________________________
+
+## Variables 
+
+
+```
+var health = 100
+```
+
+In Godot, data types are essential for defining the kind of data that can be stored in variables, passed to functions, and returned from functions.
+Godot uses a variety of built-in data types, which can be categorized into several groups:
+
+### Basic Data Types
+
+1. **Primitive Types:**
+   - `int`: Represents integer values (e.g., `1`, `42`, `-7`).
+   - `float`: Represents floating-point numbers (e.g., `3.14`, `-0.001`).
+   - `String`: Represents text strings (e.g., `"Hello, World!"`).
+   - `bool`: Represents boolean values (`true` or `false`).
+
+2. **Variant Type:**
+   - `Variant`: A flexible type that can hold any of the above types and more. It is used when the type of data is not known at compile time.
+
+### Collection Types
+
+1. **Array:**
+   - A dynamic array that can hold multiple values of any type. Example: `var my_array = [1, 2, 3, "Hello"]`.
+
+2. **Dictionary:**
+   - A collection of key-value pairs, similar to a hash table or map. Example: `var my_dict = {"name": "Alice", "age": 30}`.
+
+### Object Types
+
+- **Node:** The base class for all scene objects in Godot. Custom scripts can extend `Node` or any of its subclasses.
+- **Resource:** A base class for data resources that can be saved and reused, such as textures, sounds, and scripts.
+
+### Custom Types
+
+- You can define your own data types using classes. For example, you can create a custom class to represent a player or an enemy in your game.
+
+### Type Checking
+
+Godot provides a way to check the type of a variable using the `typeof()` function, which can be useful for debugging or ensuring that the correct types are being used in your code.
+
+### Example Usage
+
+
+```gdscript
+extends Node
+
+var my_int: int = 42
+var my_float: float = 3.14
+var my_string: String = "Hello, Godot!"
+var my_bool: bool = true
+var my_array: Array = [1, 2, 3, "four"]
+var my_dict: Dictionary = {"key": "value", "number": 123}
+
+func _ready():
+    print(my_int)
+    print(my_float)
+    print(my_string)
+    print(my_bool)
+    print(my_array)
+    print(my_dict)
+```
+
+
+
+
+
+
 
