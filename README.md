@@ -771,6 +771,66 @@ var players = {
 
 ```
 
+_________________
+
+
+In Godot, un **enum** (abbreviazione di "enumerazione") è un tipo di dato che consente di definire un insieme di costanti con nomi significativi. Gli enum sono utili per rappresentare stati, tipi o categorie in modo leggibile e organizzato. Utilizzando gli enum, puoi migliorare la chiarezza del tuo codice e ridurre il rischio di errori associati all'uso di valori numerici o stringhe.
+
+### Dichiarazione di un Enum
+
+
+```gdscript
+enum State {
+    IDLE,
+    RUNNING,
+    JUMPING,
+    FALLING
+}
+```
+
+
+### Utilizzo di un Enum
+
+
+```gdscript
+extends Node
+
+enum State {
+    IDLE,
+    RUNNING,
+    JUMPING,
+    FALLING
+}
+
+var current_state: State = State.IDLE
+
+func _ready():
+    print("Stato iniziale: ", current_state)  # Output: Stato iniziale: 0 (IDLE)
+    
+    change_state(State.RUNNING)
+    print("Stato attuale: ", current_state)  # Output: Stato attuale: 1 (RUNNING)
+
+func change_state(new_state: State):
+    current_state = new_state
+    match current_state:
+        State.IDLE:
+            print("Il personaggio è fermo.")
+        State.RUNNING:
+            print("Il personaggio sta correndo.")
+        State.JUMPING:
+            print("Il personaggio sta saltando.")
+        State.FALLING:
+            print("Il personaggio sta cadendo.")
+```
+
+
+
+### Vantaggi degli Enum
+
+- **Chiarezza**: Gli enum rendono il codice più leggibile, poiché i nomi delle costanti sono più significativi rispetto ai numeri o alle stringhe.
+- **Prevenzione degli errori**: Utilizzando enum, si riduce il rischio di errori di battitura o di confusione tra valori simili.
+- **Facilità di manutenzione**: Se si ha bisogno di aggiungere o modificare stati, si puo fare in un solo posto, rendendo il codice più facile da mantenere.
+
 
 
 
