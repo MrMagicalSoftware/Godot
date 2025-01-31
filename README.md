@@ -349,10 +349,82 @@ In questo esempio:
 - È importante notare che le variabili esportate sono visibili solo nell'Inspector e non possono essere modificate durante l'esecuzione del gioco, a meno che non vengano aggiornate tramite codice.
 
 
+_________________________
 
 
 
+In Godot, la parola chiave `const` viene utilizzata per dichiarare una costante, ovvero una variabile il cui valore non può essere modificato dopo la sua inizializzazione. Le costanti sono utili per definire valori che rimangono fissi durante l'esecuzione del programma, come configurazioni, parametri di gioco o valori che non devono cambiare.
 
+### Utilizzo di `const`
+
+1. **Dichiarazione**: Puoi dichiarare una costante utilizzando la parola chiave `const` seguita dal nome della costante e dal suo valore.
+
+2. **Tipi di dati**: Le costanti possono essere di qualsiasi tipo di dato, inclusi `int`, `float`, `String`, `bool`, `Array`, `Dictionary`, e oggetti.
+
+3. **Visibilità**: Le costanti sono visibili solo all'interno dello script in cui sono dichiarate.
+
+### Esempio di utilizzo
+
+Ecco un esempio di come utilizzare `const` in uno script GDScript:
+
+```gdscript
+extends Node
+
+const MAX_HEALTH: int = 100
+const PLAYER_NAME: String = "Giocatore"
+const GRAVITY: float = 9.8
+
+func _ready():
+    print("Nome del giocatore: ", PLAYER_NAME)
+    print("Salute massima: ", MAX_HEALTH)
+    print("Gravità: ", GRAVITY)
+```
+
+In questo esempio:
+
+- `MAX_HEALTH`, `PLAYER_NAME`, e `GRAVITY` sono costanti.
+- Una volta assegnato un valore a una costante, non puoi modificarlo. Se provi a farlo, Godot genererà un errore.
+
+### Vantaggi dell'uso di `const`
+
+1. **Chiarezza**: Le costanti rendono il codice più leggibile, poiché indicano chiaramente che un valore non deve cambiare.
+2. **Prevenzione degli errori**: Utilizzando costanti, riduci il rischio di modificare accidentalmente valori che dovrebbero rimanere fissi.
+3. **Facilità di manutenzione**: Se hai bisogno di cambiare un valore costante, puoi farlo in un solo posto, invece di cercare e sostituire in tutto il codice.
+
+### Considerazioni
+
+- È una buona pratica utilizzare nomi in maiuscolo per le costanti, in modo da distinguerle facilmente dalle variabili normali.
+- Le costanti possono essere utilizzate anche per definire valori che potrebbero essere utilizzati in più parti del codice, come colori, dimensioni o parametri di configurazione.
+
+
+
+___________
+
+
+# Functions
+```
+func nome_funzione(parametro1, parametro2):
+    # Codice da eseguire
+    return valore  # Facoltativo
+
+```
+
+```
+extends Node
+
+# Funzione statica per calcolare il fattoriale
+static func factorial(n: int) -> int:
+    if n <= 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+func _ready():
+    # Chiamata alla funzione statica senza creare un'istanza
+    var number: int = 5
+    var result: int = factorial(number)
+    print("Il fattoriale di ", number, " è: ", result)  # Output: Il fattoriale di 5 è: 120
+```
 
 
 
