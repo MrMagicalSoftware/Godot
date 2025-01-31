@@ -543,6 +543,106 @@ Numero: 6
 ```
 
 
+______________
+
+
+
+# Loops
+
+
+
+
+In Godot, i **cicli** (o **loops**) sono utilizzati per eseguire ripetutamente un blocco di codice finché una condizione specificata è vera. I cicli sono utili per iterare su collezioni di dati, come array o dizionari, o per eseguire operazioni ripetitive. GDScript supporta diversi tipi di cicli, tra cui `for`, `while` e `foreach`.
+
+### 1. Ciclo `for`
+
+Il ciclo `for` è utilizzato per iterare su una sequenza di valori, come un array o un intervallo di numeri.
+
+#### Esempio di ciclo `for` su un array
+
+```gdscript
+extends Node
+
+func _ready():
+    var numbers: Array = [1, 2, 3, 4, 5]
+    
+    for number in numbers:
+        print("Numero: ", number)
+```
+
+#### Esempio di ciclo `for` con un intervallo
+
+Puoi anche utilizzare un ciclo `for` per iterare su un intervallo di numeri:
+
+```gdscript
+func _ready():
+    for i in range(5):  # Itera da 0 a 4
+        print("Indice: ", i)
+```
+
+### 2. Ciclo `while`
+
+Il ciclo `while` esegue un blocco di codice finché una condizione specificata è vera. È utile quando non si conosce in anticipo il numero di iterazioni.
+
+#### Esempio di ciclo `while`
+
+```gdscript
+func _ready():
+    var count: int = 0
+    
+    while count < 5:
+        print("Contatore: ", count)
+        count += 1  # Incrementa il contatore
+```
+
+### 3. Ciclo `foreach`
+
+Il ciclo `foreach` è simile al ciclo `for`, ma è specificamente progettato per iterare su array e dizionari. È utile quando si desidera accedere a ciascun elemento senza dover gestire gli indici.
+
+#### Esempio di ciclo `foreach` su un array
+
+```gdscript
+func _ready():
+    var fruits: Array = ["Mela", "Banana", "Arancia"]
+    
+    for fruit in fruits:
+        print("Frutto: ", fruit)
+```
+
+#### Esempio di ciclo `foreach` su un dizionario
+
+```gdscript
+func _ready():
+    var person: Dictionary = {"nome": "Alice", "età": 30, "città": "Roma"}
+    
+    for key in person.keys():
+        print(key, ": ", person[key])
+```
+
+### Uscita dai Cicli
+
+Puoi utilizzare la parola chiave `break` per uscire da un ciclo prima che la condizione di terminazione sia soddisfatta. Puoi anche utilizzare `continue` per saltare l'iterazione corrente e passare alla successiva.
+
+#### Esempio di `break`
+
+```gdscript
+func _ready():
+    for i in range(10):
+        if i == 5:
+            break  # Esce dal ciclo quando i è 5
+        print("Numero: ", i)
+```
+
+#### Esempio di `continue`
+
+```gdscript
+func _ready():
+    for i in range(5):
+        if i == 2:
+            continue  # Salta l'iterazione quando i è 2
+        print("Numero: ", i)
+```
+
 
 
 
