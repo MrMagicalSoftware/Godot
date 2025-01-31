@@ -1001,7 +1001,104 @@ func _ready():
 
 In questo esempio, accediamo sia a un nodo `Player` che a un nodo `Label` chiamato `HealthLabel`, inizializzando entrambi con `@onready`. Quando il nodo è pronto, possiamo modificare la posizione del giocatore e impostare il testo dell'etichetta della salute.
 
+______________
 
+
+In Godot, i **signals** (segnali) sono un meccanismo di comunicazione che consente a un nodo di notificare ad altri nodi che si è verificato un evento. I segnali sono simili agli eventi in altri linguaggi di programmazione e sono particolarmente utili per implementare un'architettura basata su eventi, dove i nodi possono reagire a cambiamenti di stato o azioni senza dover essere direttamente collegati tra loro.
+
+### Creazione di un Signal
+
+Puoi dichiarare un segnale in GDScript utilizzando la parola chiave `signal`. Ecco un esempio di come dichiarare un segnale:
+
+```gdscript
+extends Node
+
+signal player_died  # Dichiarazione di un segnale chiamato "player_died"
+```
+
+### Emissione di un Signal
+
+Per emettere un segnale, utilizzi la parola chiave `emit_signal`, seguita dal nome del segnale e, facoltativamente, da eventuali argomenti che desideri passare ai listener:
+
+```gdscript
+func die():
+    emit_signal("player_died")  # Emette il segnale "player_died"
+```
+
+### Collegamento a un Signal
+
+Per ricevere un segnale, devi collegarlo a una funzione di callback. Puoi farlo utilizzando il metodo `connect`. Ecco un esempio di come collegare un segnale a una funzione:
+
+```gdscript
+extends Node
+
+signal player_died
+
+func _ready():
+    connect("player_died", self, "_on_player_died")  # Collega il segnale a una funzione
+
+func die():
+    emit_signal("player_died")  # Emette il segnale
+
+func _on_player_died():
+    print("Il giocatore è morto!")  # Funzione di callback che viene chiamata quando il segnale è emesso
+```
+
+### Esempio Completo
+
+Ecco un esempio completo che mostra come utilizzare i segnali in Godot:
+
+```gdscript
+# Player.gd
+extends Node2D
+
+signal player_died
+
+func _ready():
+    # Simula la morte del giocatore dopo 2 secondi
+    yield(get_tree().create_timer(2), "timeout")
+    die()
+
+func die():
+    emit_signal("player_died")  # Emette il segnale "player_died"
+
+
+# Game.gd
+extends Node
+
+var player: Player
+
+func _ready():
+    player = preload("res://Player.tscn").instance()  # Carica e istanzia il nodo Player
+    add_child(player)  # Aggiunge il nodo Player alla scena
+    player.connect("player_died", self, "_on_player_died")  # Collega il segnale
+
+func _on_player_died():
+    print("Il giocatore è morto! Gestisci la logica di morte qui.")
+```
+
+### Spiegazione del Codice
+
+1. **Dichiarazione del Segnale**: Nel file `Player.gd`, dichiariamo un segnale chiamato `player_died`.
+
+2. **Emissione del Segnale**: Quando il giocatore "muore", chiamiamo `emit_signal("player_died")`.
+
+3. **Collegamento del Segnale**: Nel file `Game.gd`, carichiamo e istanziamo il nodo `Player`, quindi colleghiamo il segnale `player_died` a una funzione di callback `_on_player_died`.
+
+4. **Funzione di Callback**: Quando il segnale viene emesso, la funzione `_on_player_died` viene chiamata, e possiamo gestire la logica di morte del giocatore.
+
+### Vantaggi dei Signals
+
+- **Decoupling**: I segnali consentono di separare la logica di diversi nodi, rendendo il codice più modulare e facile da mantenere.
+- **Flessibilità**: Puoi collegare più funzioni a un singolo segnale, consentendo a più nodi di reagire a un evento.
+- **Semplicità**: I segnali semplificano la gestione degli eventi, evitando la necessità di controllare manualmente lo stato di altri nodi.
+
+### Considerazioni
+
+- I segnali possono essere emessi con argomenti, che possono essere utilizzati dai listener per ricevere informazioni aggiuntive.
+- Puoi disconnettere un segnale utilizzando il metodo `disconnect` se non hai più bisogno di ricevere notifiche.
+
+In sintesi, i segnali sono uno strumento potente in Godot per gestire la comunicazione tra nodi e implementare un'architettura basata su eventi, migliorando la modularità e la chiarezza del codice.
 
 
 
