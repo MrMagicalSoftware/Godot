@@ -1207,6 +1207,9 @@ _______________________________________________
 
 In Godot, il concetto di "call down" e "signal up" si riferisce a un modo di comunicare tra nodi o oggetti in una gerarchia, in cui un nodo figlio invia un segnale a un nodo genitore o a un altro nodo. Questo è spesso utilizzato per gestire eventi e comunicazioni in modo che i nodi possano rimanere disaccoppiati e modulari.
 
+Il modello "call down" e "signal up" in Godot consente una comunicazione efficace tra nodi, mantenendo il codice modulare e disaccoppiato. 
+
+
 ### Concetto di Segnali
 
 I segnali in Godot sono un modo per implementare la comunicazione tra oggetti. Un nodo può "emittere" un segnale, e altri nodi possono "ascoltare" quel segnale e reagire quando viene emesso. Questo è utile per eventi come clic del mouse, collisioni, o qualsiasi altro tipo di interazione.
@@ -1251,14 +1254,8 @@ func _on_child_event_occurred() -> void:
 ### Spiegazione del Codice
 
 1. **Definizione del Segnale**: Nel nodo figlio (`Child.gd`), viene definito un segnale chiamato `child_event_occurred`. Quando si verifica un evento (in questo caso, dopo 2 secondi), il segnale viene emesso.
-
 2. **Connessione del Segnale**: Nel nodo genitore (`Parent.gd`), il segnale del nodo figlio viene connesso a un metodo (`_on_child_event_occurred`). Questo metodo verrà chiamato quando il segnale viene emesso.
-
 3. **Reazione al Segnale**: Quando il segnale viene emesso, il metodo nel nodo genitore viene eseguito, stampando un messaggio nella console.
-
-### Conclusione
-
-Il modello "call down" e "signal up" in Godot consente una comunicazione efficace tra nodi, mantenendo il codice modulare e disaccoppiato. Utilizzando i segnali, puoi gestire eventi e interazioni in modo chiaro e organizzato. Se hai ulteriori domande o desideri approfondire un argomento specifico, non esitare a chiedere!
 
 
 
