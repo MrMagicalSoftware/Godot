@@ -135,6 +135,166 @@ func _ready():
 ```
 
 
+__________________________________________
+
+
+
+In Godot, le condizionali sono utilizzate per eseguire diverse azioni in base a determinate condizioni. Le strutture condizionali più comuni in GDScript sono `if`, `elif` e `else`. Ecco una panoramica di come funzionano:
+
+### Struttura di base
+
+1. **`if`**: Controlla se una condizione è vera e, in tal caso, esegue il blocco di codice associato.
+2. **`elif`**: (abbreviazione di "else if") consente di controllare ulteriori condizioni se la condizione precedente è falsa.
+3. **`else`**: Esegue un blocco di codice se tutte le condizioni precedenti sono false.
+
+### Sintassi
+
+Ecco la sintassi di base per le condizionali in GDScript:
+
+```gdscript
+if condition1:
+    # Codice da eseguire se condition1 è vera
+elif condition2:
+    # Codice da eseguire se condition1 è falsa e condition2 è vera
+else:
+    # Codice da eseguire se tutte le condizioni precedenti sono false
+```
+
+### Esempio
+
+Ecco un esempio pratico di utilizzo delle condizionali in GDScript:
+
+```gdscript
+extends Node
+
+var score: int = 85
+
+func _ready():
+    if score >= 90:
+        print("Ottimo lavoro! Hai ottenuto un A.")
+    elif score >= 80:
+        print("Buon lavoro! Hai ottenuto un B.")
+    elif score >= 70:
+        print("Hai passato! Hai ottenuto un C.")
+    else:
+        print("Non hai passato. Riprova!")
+```
+
+### Operatori di confronto
+
+Puoi utilizzare vari operatori di confronto nelle condizioni, tra cui:
+
+- `==`: uguale a
+- `!=`: diverso da
+- `<`: minore di
+- `>`: maggiore di
+- `<=`: minore o uguale a
+- `>=`: maggiore o uguale a
+
+### Operatori logici
+
+Puoi anche combinare più condizioni utilizzando operatori logici:
+
+- `and`: restituisce vero se entrambe le condizioni sono vere.
+- `or`: restituisce vero se almeno una delle condizioni è vera.
+- `not`: restituisce vero se la condizione è falsa.
+
+### Esempio con operatori logici
+
+```gdscript
+var age: int = 20
+var has_permission: bool = true
+
+func _ready():
+    if age >= 18 and has_permission:
+        print("Puoi entrare.")
+    else:
+        print("Accesso negato.")
+```
+
+_______________________________________-
+
+
+# Casting
+
+
+In Godot, il "casting" si riferisce al processo di conversione di un valore da un tipo di dato a un altro. 
+Questo è utile quando si desidera garantire che una variabile sia di un tipo specifico prima di utilizzarla in operazioni o funzioni che richiedono quel tipo. 
+
+### Tipi di Casting in GDScript
+
+1. **Casting tra tipi primitivi**: Puoi convertire tra tipi come `int`, `float`, e `String`.
+2. **Casting di oggetti**: Puoi convertire un oggetto di una classe base in un oggetto di una classe derivata.
+
+### Esempi di Casting
+
+#### 1. Casting tra tipi primitivi
+
+
+```gdscript
+var my_float: float = 3.14
+var my_int: int = int(my_float)  # Converte float in int
+print(my_int)  # Output: 3
+
+var my_string: String = "42"
+var my_number: int = int(my_string)  # Converte String in int
+print(my_number)  # Output: 42
+```
+
+#### 2. Casting di oggetti
+
+Quando si lavora con oggetti, si può utilizzare il casting per convertire un oggetto di una classe base in un oggetto di una classe derivata. 
+Questo è utile quando si lavora con nodi o risorse in Godot.
+
+```gdscript
+extends Node
+
+func _ready():
+    var node: Node = get_node("MyNode")
+    
+    # Casting di un nodo a un tipo specifico
+    var my_sprite: Sprite = my_sprite as Sprite
+    if my_sprite:
+        my_sprite.texture = preload("res://path/to/texture.png")
+    else:
+        print("Il nodo non è un Sprite.")
+```
+
+### Uso di `is` e `as`
+
+- **`is`**: Verifica se un oggetto è di un certo tipo.
+- **`as`**: Esegue il casting di un oggetto a un tipo specifico e restituisce `null` se il casting non è possibile.
+
+Ecco un esempio di utilizzo di `is` e `as`:
+
+```gdscript
+var node: Node = get_node("MyNode")
+
+if node is Sprite:
+    var my_sprite: Sprite = node as Sprite
+    my_sprite.texture = preload("res://path/to/texture.png")
+else:
+    print("Il nodo non è un Sprite.")
+```
+
+### Considerazioni sul Casting
+
+- Il casting è utile per garantire che il  codice funzioni correttamente con i tipi di dati previsti.
+- È importante gestire i casi in cui il casting potrebbe fallire, specialmente quando si lavora con oggetti, per evitare errori di runtime.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
