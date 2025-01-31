@@ -759,6 +759,29 @@ func _ready():
 
 
 
+__________________________________
+
+
+```
+var players = {
+	"Crook : {"Level" : 1 , "Health" : 80 },
+ 	"Villain : {"Level" : 1 , "Health" : 80 },
+	"Boss : {"Level" : 1 , "Health" : 80 },
+}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
