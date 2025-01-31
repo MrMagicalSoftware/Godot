@@ -1139,6 +1139,67 @@ func _ready() -> void:
     print("Current health: ", current_health)
 ```
 
+_____________________________________________
+
+
+
+
+# Classes :
+
+
+
+```gdscript
+extends Node
+
+# Proprietà della classe
+var name: String
+var health: int
+
+# Costruttore
+func _init(new_name: String, new_health: int) -> void:
+    name = new_name
+    health = new_health
+
+# Metodo per stampare informazioni
+func display_info() -> void:
+    print("Name: ", name, ", Health: ", health)
+```
+
+### Utilizzo della Classe
+
+
+```gdscript
+# Creazione di un'istanza della classe
+var player = Player.new("Hero", 100)
+
+# Chiamata al metodo
+player.display_info()  # Output: Name: Hero, Health: 100
+```
+
+### Ereditarietà
+
+Le classi in Godot possono anche ereditare da altre classi.
+
+
+```gdscript
+extends Player
+
+# Proprietà aggiuntive
+var mana: int
+
+# Costruttore
+func _init(new_name: String, new_health: int, new_mana: int) -> void:
+    ._init(new_name, new_health)  # Chiama il costruttore della classe base
+    mana = new_mana
+
+# Metodo per stampare informazioni
+func display_info() -> void:
+    .display_info()  # Chiama il metodo della classe base
+    print("Mana: ", mana)
+```
+
+
+
 
 
 
