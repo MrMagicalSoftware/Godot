@@ -4,11 +4,12 @@
 
 Indice :
 
-Input
-Variables
-Casting
+Input <br>
+Variables<br>
+Casting<br>
+Uso di Export<br>
 
-Match
+Match<br>
 
 
 > Creare un nodo e rinominarlo in Main 
