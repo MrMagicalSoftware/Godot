@@ -11,6 +11,9 @@ Uso di Export<br>
 
 Match<br>
 @onready<br>
+Signals<br>
+
+
 
 > Creare un nodo e rinominarlo in Main 
 <img width="1505" alt="Screenshot 2025-01-29 alle 15 46 57" src="https://github.com/user-attachments/assets/40cdb28f-fc67-4e38-b2d2-75c2aa985dce" />
