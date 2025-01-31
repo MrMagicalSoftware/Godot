@@ -832,9 +832,97 @@ func change_state(new_state: State):
 - **Facilità di manutenzione**: Se si ha bisogno di aggiungere o modificare stati, si puo fare in un solo posto, rendendo il codice più facile da mantenere.
 
 
+__________________
 
 
+# Match
 
+In Godot, l'istruzione `match` è una struttura di controllo che consente di confrontare un valore con diversi casi e di eseguire il codice corrispondente al caso che corrisponde. È simile all'istruzione `switch` presente in altri linguaggi di programmazione, ma offre una sintassi più flessibile e potente.
+
+### Sintassi di `match`
+
+
+```gdscript
+match valore_da_confrontare:
+    caso1:
+        # Codice da eseguire se valore_da_confrontare corrisponde a caso1
+    caso2:
+        # Codice da eseguire se valore_da_confrontare corrisponde a caso2
+    _:
+        # Codice da eseguire se nessun caso corrisponde (simile a "default")
+```
+
+### Esempio di Utilizzo di `match`
+
+
+```gdscript
+extends Node
+
+enum State {
+    IDLE,
+    RUNNING,
+    JUMPING,
+    FALLING
+}
+
+var current_state: State = State.IDLE
+
+func _ready():
+    print_state_message(current_state)  # Output: Il personaggio è fermo.
+    
+    current_state = State.RUNNING
+    print_state_message(current_state)  # Output: Il personaggio sta correndo.
+    
+    current_state = State.JUMPING
+    print_state_message(current_state)  # Output: Il personaggio sta saltando.
+
+func print_state_message(state: State):
+    match state:
+        State.IDLE:
+            print("Il personaggio è fermo.")
+        State.RUNNING:
+            print("Il personaggio sta correndo.")
+        State.JUMPING:
+            print("Il personaggio sta saltando.")
+        State.FALLING:
+            print("Il personaggio sta cadendo.")
+        _:
+            print("Stato sconosciuto.")
+```
+
+### Spiegazione del Codice
+
+1. **Dichiarazione dell'Enum**: Abbiamo dichiarato un enum chiamato `State` con quattro stati: `IDLE`, `RUNNING`, `JUMPING` e `FALLING`.
+
+2. **Variabile `current_state`**: Abbiamo creato una variabile `current_state` di tipo `State`, inizializzandola a `State.IDLE`.
+
+3. **Funzione `_ready()`**: Questa funzione viene chiamata quando il nodo è pronto. Stampa un messaggio in base allo stato attuale del personaggio.
+
+4. **Funzione `print_state_message(state: State)`**: Questa funzione utilizza l'istruzione `match` per confrontare il valore di `state` con i diversi casi definiti nell'enumerazione `State`. A seconda dello stato, stampa un messaggio corrispondente.
+
+5. **Caso `_`**: L'underscore (`_`) viene utilizzato come caso di fallback, simile al "default" in altre lingue. Viene eseguito se nessun altro caso corrisponde.
+
+### Vantaggi di `match`
+
+- **Chiarezza**: L'istruzione `match` rende il codice più leggibile e organizzato, specialmente quando si confrontano più casi.
+- **Flessibilità**: Puoi utilizzare espressioni più complesse nei casi, come intervalli o condizioni.
+- **Prevenzione degli errori**: Utilizzando `match`, puoi gestire facilmente casi non previsti, migliorando la robustezza del tuo codice.
+
+### Esempio Avanzato
+
+
+```gdscript
+func process_input(input: String):
+    match input:
+        "salta":
+            print("Il personaggio salta.")
+        "corri":
+            print("Il personaggio corre.")
+        "fermo":
+            print("Il personaggio si ferma.")
+        _:
+            print("Comando non riconosciuto.")
+```
 
 
 
