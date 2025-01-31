@@ -426,6 +426,134 @@ func _ready():
     print("Il fattoriale di ", number, " è: ", result)  # Output: Il fattoriale di 5 è: 120
 ```
 
+__________________________________-
+
+
+
+
+In Godot, gli **array** sono una struttura di dati fondamentale che consente di memorizzare una collezione di elementi. Gli array possono contenere elementi di qualsiasi tipo, inclusi numeri, stringhe, oggetti e persino altri array. Gli array sono dinamici, il che significa che si può aggiungere o rimuovere elementi in qualsiasi momento.
+
+### Creazione di un Array
+
+Puoi creare un array in GDScript in vari modi:
+
+1. **Array vuoto**:
+   ```gdscript
+   var my_array: Array = []
+   ```
+
+2. **Array con elementi**:
+   ```gdscript
+   var my_array: Array = [1, 2, 3, "quattro", true]
+   ```
+
+### Accesso agli Elementi
+
+
+```gdscript
+var first_element = my_array[0]  # Restituisce 1
+var second_element = my_array[1]  # Restituisce 2
+```
+
+### Modifica degli Elementi
+
+Puoi modificare gli elementi di un array assegnando un nuovo valore a un indice specifico:
+
+```gdscript
+my_array[0] = 10  # Cambia il primo elemento in 10
+```
+
+### Aggiunta e Rimozione di Elementi
+
+Puoi utilizzare vari metodi per aggiungere o rimuovere elementi da un array:
+
+- **Aggiungere un elemento**:
+  ```gdscript
+  my_array.append(5)  # Aggiunge 5 alla fine dell'array
+  ```
+
+- **Aggiungere più elementi**:
+  ```gdscript
+  my_array.append_array([6, 7, 8])  # Aggiunge 6, 7 e 8 alla fine dell'array
+  ```
+
+- **Rimuovere un elemento**:
+  ```gdscript
+  my_array.remove(1)  # Rimuove l'elemento all'indice 1 (che è 2)
+  ```
+
+- **Rimuovere l'ultimo elemento**:
+  ```gdscript
+  my_array.pop_back()  # Rimuove l'ultimo elemento (che è 8 dopo l'aggiunta)
+  ```
+
+### Iterare su un Array
+
+
+```gdscript
+for element in my_array:
+    print(element)
+```
+
+### Esempio Completo
+
+
+```gdscript
+extends Node
+
+func _ready():
+    # Creazione di un array
+    var numbers: Array = [1, 2, 3, 4, 5]
+    
+    # Aggiunta di un elemento
+    numbers.append(6)
+    print("Array dopo l'aggiunta: ", numbers)  # Output: [1, 2, 3, 4, 5, 6]
+    
+    # Modifica di un elemento
+    numbers[0] = 10
+    print("Array dopo la modifica: ", numbers)  # Output: [10, 2, 3, 4, 5, 6]
+    
+    # Rimozione di un elemento
+    numbers.remove(1)  # Rimuove l'elemento all'indice 1 (che è 2)
+    print("Array dopo la rimozione: ", numbers)  # Output: [10, 3, 4, 5, 6]
+    
+    # Iterazione sull'array
+    for number in numbers:
+        print("Numero: ", number)
+```
+
+### Risultato
+
+Quando si esegue questo script, si vedrà l'output che mostra le modifiche all'array e i numeri iterati:
+
+```
+Array dopo l'aggiunta: [1, 2, 3, 4, 5, 6]
+Array dopo la modifica: [10, 2, 3, 4, 5, 6]
+Array dopo la rimozione: [10, 3, 4, 5, 6]
+Numero: 10
+Numero: 3
+Numero: 4
+Numero: 5
+Numero: 6
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
